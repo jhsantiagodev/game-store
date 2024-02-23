@@ -1,6 +1,12 @@
 :root {
    --color-principal: #fff;
    --color-secondary: #329153;
+   --color-bg-navbar: #333946;
+
+   --trant-01: 0.1s;
+   --trant-02: 0.2s;
+   --trant-03: 0.3s;
+   --trant-05: 0.5s;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
@@ -42,38 +48,130 @@ body {
    margin: 0 auto;
 }
 
+/*sytles HEADER*/
 .layout__header {
    grid-area: header;
+   width: 100%;
+   min-width: 100%;
+   padding: 2rem 0;
 }
 
+.header__img {
+   width: 17rem;
+}
+
+/*sytles NAV*/
 .layout__nav {
    grid-area: nav;
+   position: relative;
+   width: 100%;
 }
 
+.nav__navbar {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   position: relative;
+   height: 5rem;
+   width: 100%;
+   color: var(--color-principal);
+   background-color: var(--color-bg-navbar);
+}
+
+.navbar__submenu {
+   display: none;
+}
+
+.navbar__list {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+}
+
+.navbar__item {
+   height: 5rem;
+   cursor: pointer;
+}
+
+.navbar__item:hover {
+   background-color: var(--color-secondary);
+}
+
+.navbar__link {
+   font-size: 1.3rem;
+   font-weight: 700;
+   padding: 1.5rem 1.5rem;
+   color: var(--color-principal);
+}
+
+.navbar__search {
+   display: flex;
+   height: 100%;
+}
+
+.search__input {
+   display: none;
+   width: 20rem;
+   height: 5rem;
+   font-size: 1.6rem;
+   background-color: var(--color-secondary);
+   color: var(--color-principal);
+   outline: none;
+   border: none;
+   transition: all var(--trant-02) ease-in-out;
+}
+
+.search__input::placeholder {
+   color: var(--color-principal);
+   padding: 1rem;
+   opacity: 1;
+}
+
+.navbar__btn-search {
+   background-color: var(--color-secondary);
+   padding: 0.8rem 1.3rem;
+   height: 5rem;
+   display: flex;
+   align-items: center;
+}
+
+.btn-search__icon {
+   color: var(--color-principal);
+   font-size: 2.7rem;
+}
+
+/*sytles MARQUEE*/
 .layout__marquee {
    grid-area: marquee;
 }
 
+/*sytles SLIDER*/
 .layout__slider {
    grid-area: slider;
 }
 
+/*sytles HIGH*/
 .layout__highlights {
    grid-area: high;
 }
 
+/*sytles VIDEOS*/
 .layout__videos {
    grid-area: videos;
 }
 
+/*sytles CAROUSEL*/
 .layout__carousel-games {
    grid-area: carousel;
 }
 
+/*sytles MAIN*/
 .layout__main {
    grid-area: main;
 }
 
+/*sytles ASIDE*/
 .layout__aside {
    grid-area: aside;
 }
