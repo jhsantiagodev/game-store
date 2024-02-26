@@ -2,6 +2,9 @@
    --color-principal: #fff;
    --color-secondary: #329153;
    --color-bg-navbar: #333946;
+   --color-border-list: rgba(255, 255, 255, 0.3);
+   --color-hover-sblist-item: rgba(0, 0, 0, 0.05);
+   --color-hover-shadow: rgba(0, 0, 0, 0.10);
 
    --trant-01: 0.1s;
    --trant-02: 0.2s;
@@ -79,10 +82,6 @@ body {
    background-color: var(--color-bg-navbar);
 }
 
-.navbar__submenu {
-   display: none;
-}
-
 .navbar__list {
    display: flex;
    flex-direction: row;
@@ -139,6 +138,189 @@ body {
 .btn-search__icon {
    color: var(--color-principal);
    font-size: 2.7rem;
+}
+
+/*styles SUBMENUS*/
+.navbar__item:hover .navbar__submenu {
+   opacity: 1;
+   visibility: visible;
+   transition: all var(--trant-03) ease-in-out;
+}
+
+.navbar__item:hover .submenu__carousel {
+   display: block;
+}
+
+.navbar__submenu {
+   opacity: 0;
+   visibility: hidden;
+   overflow: hidden;
+   position: absolute;
+   top: 100%;
+   left: 0;
+   width: 100%;
+   background-color: var(--color-secondary);
+   display: flex;
+   flex-direction: row;
+   z-index: 9;
+}
+
+.navbar__submenu--small {
+   left: auto;
+   width: 20%;
+   overflow: visible; /*Corrige el error de los submenus para mostrarlos*/
+}
+
+/*border-botton y la caja se modifiquen al comopleto*/
+.navbar__submenu--small > .navbar__sublist {
+   width: 100%;
+}
+
+.navbar__sublist {
+   display: inline-block;
+   padding: 1rem;
+   width: 26%;
+}
+
+.sublist__item {
+   padding: 0.1rem 0;
+   position: relative;
+   border-bottom: 1px solid var(--color-border-list);
+}
+
+.sublist__item:hover {
+   background-color: var(--color-hover-sblist-item);
+}
+
+.sublist__item:last-child {
+   border: none;
+}
+
+.sublist__link {
+   color: var(--color-principal);
+   padding: 0.5rem 1rem;
+   font-size: 1.2rem;
+   font-weight: 400;
+   font-style: normal;
+   text-transform: uppercase;
+   white-space: nowrap;
+}
+
+.sublist__dropdown {
+   position: absolute;
+   left: 100%; /*sobresale div empeiza desde la derecha*/
+   top: 0;
+   padding: 1rem;
+   width: 21rem;
+   background-color: var(--color-principal);
+   box-shadow: 2px 0px 2px -1px var(--color-hover-shadow);
+   opacity: 0;
+   visibility: hidden;
+   z-index: 9;
+}
+
+.sublist__item:hover .sublist__dropdown {
+   opacity: 1;
+   visibility: visible;
+   transition: all var(--trant-03) ease-in-out;
+}
+
+.dropdown__item {
+   border-bottom: 1px solid var(--color-hover-sblist-item);
+}
+
+.dropdown__item:hover {
+   background-color: var(--color-hover-sblist-item);
+}
+
+.dropdown__link {
+   color: var(--color-bg-navbar);
+   padding: 0.5rem 1rem;
+   font-size: 1.2rem;
+   font-weight: 400;
+   text-transform: uppercase;
+}
+
+/*styles COROUSEL SUBMENUS*/
+.carousel__menu {
+   display: flex;
+   flex-direction: row;
+}
+
+.carousel__item {
+   position: relative;
+   flex-basis: 25%;
+}
+
+/*al hijo dentro del small se le apiquen estos estilos*/
+.carousel__menu--small > .carousel__item {
+   flex-basis: auto;
+}
+
+.carousel__container-img {
+   position: relative;
+   width: calc(100% + 3.5rem); /*mejorar imagenes*/
+   height: 35rem;
+   overflow: hidden;
+}
+
+.carousel__img {
+   width: auto;
+   height: 100%;
+}
+
+.carousel__container-rating {
+   position: absolute;
+   bottom: 2rem;
+   left: 50%;
+   transform: translateX(-50%);
+   width: 4.8rem;
+   height: 4.8rem;
+}
+
+.container-rating__circle {
+   width: 100%;
+   height: 100%;
+   padding: 0.2rem;
+   border-radius: 50%;
+   background-color: var(--color-secondary);
+}
+
+.container-rating__border {
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+   border: 2px solid var(--color-principal);
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   opacity: 0.9;
+}
+
+.container-rating__mark {
+   font-weight: 700;
+   color: var(--color-principal);
+}
+
+.carousel__detail {
+   position: absolute;
+   top: 1.5rem;
+   left: 0;
+   right: 0;
+   padding: 1rem;
+   text-align: center;
+}
+
+.carousel__link {
+   color: var(--color-principal);
+   font-size: 1.7rem;
+   text-shadow: 1px 1px 3px black;
+   transition: all var(--trant-02) ease-in;
+   text-transform: capitalize;
+}
+
+.carousel__item:hover .carousel__title > .carousel__link {
+   transform: scale(1.1);
 }
 
 /*sytles MARQUEE*/
